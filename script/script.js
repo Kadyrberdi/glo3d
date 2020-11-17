@@ -334,6 +334,7 @@ window.addEventListener('DOMContentLoaded', () => {
             successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
         const form = document.getElementById('form1');
+        console.log('form: ', form);
 
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2 rem;';
