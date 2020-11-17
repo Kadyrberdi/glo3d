@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     //timer
-    function countTimer(deadline) {
+    /* function countTimer(deadline) {
         const timerHours = document.querySelector('#timer-hours'),
             timerMinutes = document.querySelector('#timer-minutes'),
             timerSeconds = document.querySelector('#timer-seconds');
@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         updateClock();
     }
-    countTimer('30 november 2020 02:26:00');
+    countTimer('10 november 2020 02:26:00'); */
 
 
     //menu
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //popup
 
-    const togglePopUp = () => {
+/*     const togglePopUp = () => {
         const popup = document.querySelector('.popup'),
             popupBtn = document.querySelectorAll('.popup-btn'),
             popupContent = document.querySelector('.popup-content');
@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-    togglePopUp();
+    togglePopUp(); */
 
     //tabs
 
@@ -325,5 +325,31 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     calc(100);
+
+    //send-ajax-form
+
+    const sendForm = () => {
+        const errorMessage = 'Что то пошло не так ...',
+            loadMessage = 'Загрузка ...',
+            successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+
+        const form = document.getElementById('form1');
+
+        const statusMessage = document.createElement('div');
+        statusMessage.style.cssText = 'font-size: 2 rem;';
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            form.appendChild(statusMessage);
+
+            const request = new XMLHttpRequest();
+            request.open('POST', './server.php');
+            request.setRequestHeader('Content-Type', 'multipart/form-data');
+            const formData = new FormData(form);
+            request.send(formData);
+        })
+    };
+
+    sendForm();
 
 });
