@@ -50,14 +50,14 @@ const sendForm = () => {
                             throw new Error('status network not 200');
                         }
                         statusMessage.textContent = successMessage
+                        setTimeout(hideStsMsg, 2000);
                         setTimeout(hidePopup, 3000);
-                        setTimeout(hideStsMsg, 4000);
                     })
                     .catch((error) => {
                         statusMessage.textContent = errorMessage
                         console.log(error);
+                        setTimeout(hideStsMsg, 2000);
                         setTimeout(hidePopup, 3000);
-                        setTimeout(hideStsMsg, 4000);
                     });
             });
         }
