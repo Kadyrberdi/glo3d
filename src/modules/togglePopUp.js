@@ -9,18 +9,14 @@ const togglePopUp = () => {
                 let count = 0;
                 const animatePopup = function() {
                     count++;
-                    popupContent.style.left = count * 50 + 'px';
-                    popupContent.style.top = count * 20 + 'px';
+                    popupContent.style.left = count * 35 + 'px';
+                    popupContent.style.top = count * 15 + 'px';
                     if (count < 20) {
-                        setTimeout(animatePopup, 10);
+                        setTimeout(animatePopup, 5);
                     }
                 };
                 if (screen.width > 920) {
                     animatePopup();
-                } else {
-                    popupContent.style.left = screen.width / 2;
-                    popupContent.style.right = screen.width / 2;
-                    popupContent.style.top = screen.width / 2;
                 }
             });
         });
