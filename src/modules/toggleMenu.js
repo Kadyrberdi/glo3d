@@ -1,7 +1,8 @@
 const toggleMenu = () => {
 
         const btnMenu = document.querySelector('.menu'),
-            menu = document.querySelector('menu');
+            menu = document.querySelector('menu'),
+            activeMenu = document.querySelector('.active-menu');
 
         const handlerMenu = () => {
             menu.classList.toggle('active-menu');
@@ -10,7 +11,8 @@ const toggleMenu = () => {
         btnMenu.addEventListener('click', handlerMenu);
 
         menu.addEventListener('click', event => {
-            if (event.target.tagName === 'A') {
+            let target = event.target;
+            if (target.tagName === 'A') {
                 handlerMenu();
             }
         });

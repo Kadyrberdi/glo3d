@@ -8,10 +8,6 @@ const sendForm = () => {
         name = document.querySelectorAll('input[name="user_name"]'),   
         email = document.querySelectorAll('input[name="user_email"]'),   
         message = document.querySelectorAll('input[name="user_message"]');
-
-        
-        const popup = document.querySelector('.popup');
-        console.log('popup: ', popup);
         
         for (let i = 0; i < 3; i++) {
             name[i].setAttribute('required', '');
