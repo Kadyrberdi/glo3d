@@ -22,7 +22,6 @@ const sendForm = () => {
             form[i].addEventListener('submit', (event) => {
                 const inputs = document.querySelectorAll('form input'),
                     popup = document.querySelector('.popup');
-                    console.log('popup: ', popup);
                 
                 event.preventDefault();
                 form[i].appendChild(statusMessage);
@@ -38,6 +37,12 @@ const sendForm = () => {
                 for (let i = 0; i < inputs.length; i++) {
                     inputs[i].value = '';
                 }  
+                function hidePopup() {
+                    popup.style.display = 'none';
+                }
+                function hideStsMsg() {
+                    statusMessage.textContent = '';
+                }
                 
                 postData(body)
                     .then((response) => {
@@ -45,12 +50,14 @@ const sendForm = () => {
                             throw new Error('status network not 200');
                         }
                         statusMessage.textContent = successMessage
-                        popup.style.display = 'none';
+                        setTimeout(hidePopup, 3000);
+                        setTimeout(hideStsMsg, 4000);
                     })
                     .catch((error) => {
                         statusMessage.textContent = errorMessage
                         console.log(error);
-                        popup.style.display = 'none';
+                        setTimeout(hidePopup, 3000);
+                        setTimeout(hideStsMsg, 4000);
                     });
             });
         }
