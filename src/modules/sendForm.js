@@ -8,6 +8,10 @@ const sendForm = () => {
         name = document.querySelectorAll('input[name="user_name"]'),   
         email = document.querySelectorAll('input[name="user_email"]'),   
         message = document.querySelectorAll('input[name="user_message"]');
+
+        
+        const popup = document.querySelector('.popup');
+        console.log('popup: ', popup);
         
         for (let i = 0; i < 3; i++) {
             name[i].setAttribute('required', '');
@@ -20,7 +24,9 @@ const sendForm = () => {
         
         for (let i = 0; i < form.length; i++) {
             form[i].addEventListener('submit', (event) => {
-                const inputs = document.querySelectorAll('form input');
+                const inputs = document.querySelectorAll('form input'),
+                    popup = document.querySelector('.popup');
+                    console.log('popup: ', popup);
                 
                 event.preventDefault();
                 form[i].appendChild(statusMessage);
@@ -43,10 +49,12 @@ const sendForm = () => {
                             throw new Error('status network not 200');
                         }
                         statusMessage.textContent = successMessage
+                        popup.style.display = 'none';
                     })
                     .catch((error) => {
                         statusMessage.textContent = errorMessage
                         console.log(error);
+                        popup.style.display = 'none';
                     });
             });
         }
@@ -58,7 +66,7 @@ const sendForm = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(body),
-                credentials: 'include'
+                credentials: 'include',
             });
         };
 

@@ -17,6 +17,10 @@ const togglePopUp = () => {
                 };
                 if (screen.width > 920) {
                     animatePopup();
+                } else {
+                    popupContent.style.left = screen.width / 2;
+                    popupContent.style.right = screen.width / 2;
+                    popupContent.style.top = screen.width / 2;
                 }
             });
         });
