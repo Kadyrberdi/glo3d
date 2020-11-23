@@ -65,14 +65,13 @@ const sendForm = () => {
         //validator 
         for (let i = 0; i < form.length; i++) {
             const validator = function () {
-                phone[i].value = phone[i].value.replace(/[^0-9+]/ig, '');
                 name[i].value = name[i].value.replace(/[^а-яА-Я \ ]/ig, '');
                 message[0].value = message[0].value.replace(/[^а-яА-Я \ ]/ig, '');
             }
-        phone[i].addEventListener('input', validator);
         name[i].addEventListener('input', validator);
         message[0].addEventListener('input', validator);
         };
+        maskPhone('.form-phone');
 };
 
 export default sendForm;
